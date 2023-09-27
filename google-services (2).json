@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "964811749550",
+    "project_id": "notes-app-59cc7",
+    "storage_bucket": "notes-app-59cc7.apps pot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:964811749550:android:9f81c2b7e9c8d19675153f",
+        "android_client_info": {
+          "package_name": "com.example.notesapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAYGFw6e5Feig_fn2GyFrYpagyVK5d8z9Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

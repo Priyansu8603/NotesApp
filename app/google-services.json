@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "507872302205",
+    "project_id": "stockmarket-2f073",
+    "storage_bucket": "stockmarket-2f073.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:507872302205:android:5b179eef637e542df9cd14",
+        "android_client_info": {
+          "package_name": "com.example.stock_market_design"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD4GxUXc9RVwAqZeE7q0-pmjMZ91-C6os8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
