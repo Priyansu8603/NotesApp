@@ -13,6 +13,9 @@
         android:theme="@style/Theme.NotesApp"
         tools:targetApi="34">
         <activity
+            android:name=".homepage"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
