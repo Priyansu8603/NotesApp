@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<shape android:shape="oval" xmlns:android="http://schemas.android.com/apk/res/android">
-    <solid android:color="#333030"/>
-    <stroke android:color="#C6FF00"
-        android:width="3dp"/>
-    <corners android:radius="30dp"/>
-</shape>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:shape="oval">
+            <corners android:radius="500dp"/>
+            <solid android:color="#C6FF00"  android:state_pressed="true"
+                android:state_checked="true"   />
+        </shape>
+
+    </item>
+
+
+</selector>

@@ -5,9 +5,9 @@
     android:layout_width="match_parent"
     android:orientation="vertical"
     android:layout_height="match_parent"
-    tools:context=".ui.activity.homepage">
+    tools:context=".ui.activity.notes">
 
-    <androidx.fragment.app.FragmentContainerView
+    <fragment
         android:id="@+id/fragmentContainerView"
         android:name="androidx.navigation.fragment.NavHostFragment"
         android:layout_width="match_parent"

@@ -13,6 +13,9 @@
         android:theme="@style/Theme.NotesApp"
         tools:targetApi="34">
         <activity
+            android:name=".ui.activity.notes"
+            android:exported="false" />
+        <activity
             android:name=".ui.activity.homepage"
             android:exported="false" />
         <activity

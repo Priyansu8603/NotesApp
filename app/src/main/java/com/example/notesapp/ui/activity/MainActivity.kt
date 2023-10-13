@@ -30,7 +30,7 @@ class MainActivity : AppCompatActivity() {
 
         override fun onPostExecute(result: String?) {
             super.onPostExecute(result)
-            val intent = Intent(this@MainActivity, homepage::class.java)
+            val intent = Intent(this@MainActivity, notes::class.java)
             startActivity(intent)
         }
     }
