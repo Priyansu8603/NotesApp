@@ -7,7 +7,7 @@ import androidx.room.RoomDatabase
 import com.example.notesapp.Dao.NotesDao
 import com.example.notesapp.ui.Model.NotesEntity
 
-@Database(entities = [NotesEntity::class], version = 1)
+@Database(entities = [NotesEntity::class], version = 1, exportSchema = false)
 abstract class NotesDatabase : RoomDatabase(){
     abstract fun myNotesDao():NotesDao
 
@@ -24,7 +24,7 @@ abstract class NotesDatabase : RoomDatabase(){
             }
             synchronized(this)
             {
-                val roomDatabaseInstance = Room.databaseBuilder(context,NotesDatabase::class.java,"Notes").build()
+                val roomDatabaseInstance = Room.databaseBuilder(context,NotesDatabase::class.java,"Notes").allowMainThreadQueries().build()
 
                 INSTANCE = roomDatabaseInstance
                 return roomDatabaseInstance

@@ -10,5 +10,6 @@ data class NotesEntity (
     var id: Int? = null,
     var title:String,
     var subtitle:String,
-    var priority:String
+    val notes:String,
+    var date:String,
 )
