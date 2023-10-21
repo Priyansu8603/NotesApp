@@ -2,6 +2,7 @@ package com.example.notesapp.Dao
 
 import androidx.lifecycle.LiveData
 import androidx.room.Dao
+import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
@@ -11,16 +12,16 @@ import com.example.notesapp.ui.Model.NotesEntity
 @Dao
 interface NotesDao {
 
-    @Query("SELECT * FROM Notes")
+    @Query("SELECT * FROM Notes_Table order by id ASC")
     fun getNotes(): LiveData<List<NotesEntity>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertNotes(notes: NotesEntity)
+    suspend fun insertNotes(note: NotesEntity)
 
-    @Query("SELECT * FROM Notes WHERE id=id")
-    fun deleteNotes(id:Int)
+    @Delete
+    suspend fun deleteNotes(note: NotesEntity)
 
-    @Update
-    fun updateNotes(notes: NotesEntity)
+    @Query("UPDATE Notes_Table Set title = :title, note = :note WHERE id =:id ")
+    suspend fun updateNotes(id:Int?, title:String?, note:String?)
 
 }

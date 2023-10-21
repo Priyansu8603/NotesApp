@@ -11,14 +11,27 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <SearchView
+            android:id="@+id/searchView"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:layout_margin="16dp"
+            android:elevation="8dp"
+            android:iconifiedByDefault="false"
+            android:queryHint="Search Notes"
+            app:layout_constraintEnd_toStartOf="@+id/all_notes"
+            app:layout_constraintStart_toEndOf="@+id/all_notes"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/all_notes"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="0dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/searchView"
+            tools:listitem="@layout/item_notes"/>
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/addBtn"
@@ -29,7 +42,6 @@
             app:rippleColor="#C6FF00"
             android:backgroundTint="#C6FF00"
             app:elevation="25dp"
-            android:tint="@color/black"
             android:contentDescription="@string/add_notes"
             android:src="@drawable/baseline_add_24"
             app:layout_constraintBottom_toBottomOf="parent"

@@ -1,7 +1,7 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
-
+    id("kotlin-kapt")
 
 }
 
@@ -55,10 +55,15 @@ dependencies {
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
 
     //Room Database
-    implementation ("androidx.room:room-runtime:2.5.2")
-    implementation ("androidx.room:room-ktx:2.5.2")
-    annotationProcessor("androidx.room:room-compiler:2.5.2")
-    androidTestImplementation ("androidx.room:room-testing:2.5.2")
+    val room_version = "2.5.2"
+
+    implementation ("androidx.room:room-ktx:$room_version")
+    implementation ("androidx.room:room-runtime:$room_version")
+    kapt ("androidx.room:room-compiler:$room_version")
+
+    implementation ("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.2")
+    implementation ("androidx.lifecycle:lifecycle-runtime-ktx:2.6.2")
+    implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4")
 
     // Lifecycle components
     implementation ("androidx.lifecycle:lifecycle-extensions:2.2.0")

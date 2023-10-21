@@ -2,24 +2,27 @@ package com.example.notesapp.Repository
 
 import androidx.lifecycle.LiveData
 import com.example.notesapp.Dao.NotesDao
+import com.example.notesapp.Databse.NotesDatabase
 import com.example.notesapp.ui.Model.NotesEntity
 import com.example.notesapp.ui.activity.notes
 
-class NotesRepository(val dao: NotesDao) {
+class NotesRepository(private val dao: NotesDao) {
 
-    fun getAllNotes():LiveData<List<NotesEntity>>{
-        return dao.getNotes()
+    val allNotes: LiveData<List<NotesEntity>> = dao.getNotes()
+
+    suspend fun insert(note: NotesEntity){
+
+        dao.insertNotes(note)
     }
 
-    fun insertAllNotes(notes: NotesEntity){
-        return dao.insertNotes(notes)
+    suspend fun delete(note: NotesEntity){
+
+        dao.deleteNotes(note)
     }
 
-    fun deleteAllNotes(id:Int){
-      return dao.deleteNotes(id)
+    suspend fun update(note: NotesEntity){
+
+        dao.updateNotes(note.id,note.title,note.note)
     }
 
-    fun updateAllNotes(notes:NotesEntity){
-        return dao.updateNotes(notes)
-    }
 }

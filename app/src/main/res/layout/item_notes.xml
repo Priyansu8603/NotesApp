@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
+    android:id="@+id/item_layout"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     xmlns:tools="http://schemas.android.com/tools">
 
     <androidx.cardview.widget.CardView
@@ -21,6 +22,7 @@
             
             <TextView
                 android:layout_width="match_parent"
+                android:id="@+id/tv_title"
                 android:layout_height="wrap_content"
                 android:textSize="25sp"
                 android:text="@string/app_name"
@@ -31,9 +33,12 @@
 
             <TextView
                 android:layout_width="match_parent"
+                android:id="@+id/tv_note"
                 android:layout_height="wrap_content"
                 android:textSize="18sp"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="15dp"
+                android:ems="10"
+                android:lineSpacingMultiplier="1.25"
                 android:text="@string/app_name"
                 android:fontFamily="@font/roboto"
                 android:textColor="@color/white"
@@ -45,6 +50,7 @@
                 android:layout_height="wrap_content"
                 android:textSize="20sp"
                 android:textStyle="bold"
+                android:id="@+id/tv_date"
                 android:layout_marginTop="10dp"
                 android:text="23 Feb 2023"
                 android:gravity="end"

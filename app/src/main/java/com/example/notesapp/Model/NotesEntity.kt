@@ -1,15 +1,14 @@
 package com.example.notesapp.ui.Model
 
+import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 
-@Entity(tableName = "Notes")
+@Entity(tableName = "Notes_Table")
 data class NotesEntity (
-    @PrimaryKey(autoGenerate = true)
-    var id: Int? = null,
-    var title:String,
-    var subtitle:String,
-    val notes:String,
-    var date:String,
+    @PrimaryKey(autoGenerate = true) val id: Int?,
+    @ColumnInfo(name = "title") val title:String?,
+    @ColumnInfo(name = "note") val note:String?,
+    @ColumnInfo(name = "date") val date:String?,
 )
