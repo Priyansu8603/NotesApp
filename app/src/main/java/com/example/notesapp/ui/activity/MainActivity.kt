@@ -18,7 +18,7 @@ class MainActivity : AppCompatActivity() {
     }
     private open inner class LongOperation : AsyncTask<String?, Void, String?>() {
         override fun doInBackground(vararg p0: String?): String? {
-            for (i in 0..5) {
+            for (i in 0..3) {
                 try {
                     Thread.sleep(1000)
                 } catch (e: Exception) {
