@@ -6,6 +6,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.notesapp.Dao.NotesDao
+import com.example.notesapp.Databse.DatabaseBuilder
 import com.example.notesapp.Databse.NotesDatabase
 import com.example.notesapp.Repository.NotesRepository
 import com.example.notesapp.ui.Model.NotesEntity
@@ -20,15 +21,20 @@ class NotesViewModel(application: Application): AndroidViewModel(application) {
     val allnotes : LiveData<List<NotesEntity>>
 
 
-    init {
-        val dao = NotesDatabase.getDatabase(application ).myNotesDao()
+    init{
+        val dao = DatabaseBuilder.getDatabase(application ).myNotesDao()
         repository = NotesRepository(dao)
         allnotes = repository.allNotes
     }
+//
+//    fun deleteNote(id:Int) = viewModelScope.launch(Dispatchers.IO){
+//
+//        repository.delete(id)
+//    }
 
-    fun deleteNote(note:NotesEntity) = viewModelScope.launch(Dispatchers.IO){
+    fun getNotes() = viewModelScope.launch(Dispatchers.IO){
 
-        repository.delete(note)
+        repository.allNotes
     }
 
     fun insertNote(note:NotesEntity) = viewModelScope.launch(Dispatchers.IO){

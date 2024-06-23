@@ -15,27 +15,4 @@ import kotlinx.coroutines.internal.synchronized
 abstract class NotesDatabase : RoomDatabase(){
     abstract fun myNotesDao():NotesDao
 
-    companion object{
-
-        @Volatile
-        var INSTANCE:NotesDatabase?=null
-
-        @OptIn(InternalCoroutinesApi::class)
-        fun getDatabase(context: Context) :NotesDatabase{
-
-
-            return INSTANCE?: synchronized(this) {
-
-                val instance = Room.databaseBuilder(
-                    context.applicationContext,
-                    NotesDatabase::class.java,
-                    DATABASE_NAME
-                ).build()
-
-                INSTANCE = instance
-                instance
-            }
-
-        }
-    }
 }

@@ -5,28 +5,28 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.navigation.Navigation
 import com.example.notesapp.R
-import com.example.notesapp.databinding.FragmentHomescreenBinding
+import com.example.notesapp.databinding.FragmentNotesBinding
 
 
-class homescreen : Fragment() {
+class NotesFragment : Fragment() {
 
-    lateinit var binding: FragmentHomescreenBinding
+    private var _binding: FragmentNotesBinding? = null
+    private val binding get() = _binding!!
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-
-        binding = FragmentHomescreenBinding.inflate(layoutInflater,container,false)
-
-        binding.addBtn.setOnClickListener {
-            Navigation.findNavController(it).navigate(R.id.action_homescreen_to_createNotes)
-        }
+        _binding = FragmentNotesBinding.inflate(inflater,container,false)
 
         return binding.root
+    }
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 
 }

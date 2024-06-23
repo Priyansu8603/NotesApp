@@ -13,10 +13,8 @@ import com.example.notesapp.databinding.ItemNotesBinding
 import com.example.notesapp.ui.Model.NotesEntity
 import kotlin.random.Random
 
-class NotesAdapter(private val context: Context, val listener: NotesClickListener) : RecyclerView.Adapter<NotesAdapter.NoteViewHolder>() {
+class NotesAdapter(private val context: Context, private val notesList:List<NotesEntity>) : RecyclerView.Adapter<NotesAdapter.NoteViewHolder>() {
 
-    private val NotesList = ArrayList<NotesEntity>()
-    private val FullList  =ArrayList<NotesEntity>()
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NoteViewHolder {
@@ -26,61 +24,22 @@ class NotesAdapter(private val context: Context, val listener: NotesClickListene
     }
 
     override fun getItemCount(): Int {
-        return NotesList.size
+        return notesList.size
     }
 
     override fun onBindViewHolder(holder: NoteViewHolder, position: Int) {
-        val currentNote =NotesList  [position]
-        holder.binding.tvTitle.text = currentNote.title
+        val data =notesList[position]
+
+        holder.binding.tvTitle.text = data.title
         holder.binding.tvTitle.isSelected = true
 
-        holder.binding.tvNote.text = currentNote.note
-        holder.binding.tvDate.text = currentNote.date
+        holder.binding.tvNote.text = data.note
+        holder.binding.tvDate.text = data.date
         holder.binding.tvDate.isSelected = true
 
         holder.binding.itemLayout.setBackgroundColor(holder.itemView.resources.getColor(randomColor(),null))
 
-        holder.binding.itemLayout.setOnClickListener {
 
-            listener.onItemClicked(NotesList[holder.adapterPosition])
-        }
-
-        holder.binding.itemLayout.setOnLongClickListener {
-
-            listener.onLongItemClicked(NotesList[holder.adapterPosition],holder.binding.itemLayout)
-            true
-
-        }
-
-
-    }
-
-
-    fun updateList(newList :List<NotesEntity>){
-
-        FullList.clear()
-        FullList.addAll(newList)
-
-        NotesList.clear()
-        NotesList.addAll(FullList)
-        notifyDataSetChanged()
-
-
-    }
-
-    fun filterList(search : String){
-
-        NotesList.clear()
-
-        for (item in FullList){
-
-            if (item.title?.lowercase()?.contains(search.lowercase())==true || item.note?.lowercase()?.contains(search.lowercase())==true ){
-                NotesList.add(item)
-            }
-
-        }
-
-        notifyDataSetChanged()
     }
 
 
@@ -103,12 +62,6 @@ class NotesAdapter(private val context: Context, val listener: NotesClickListene
 
     inner class NoteViewHolder(var binding: ItemNotesBinding) : RecyclerView.ViewHolder(binding.root){
 
-    }
-
-
-    interface NotesClickListener{
-        fun onItemClicked(note: NotesEntity)
-        fun onLongItemClicked(note: NotesEntity, linearLayout: LinearLayout)
     }
 
 }

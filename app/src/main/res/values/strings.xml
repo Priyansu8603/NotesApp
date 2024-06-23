@@ -4,4 +4,6 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="add_notes">add notes</string>
     <string name="save_the_notes">save the notes</string>
+    <string name="note_taking_made_easy_store_securely_no_commitments_needed">Note Taking Made Easy: Store Securely, \n No Commitments Needed</string>
+    <string name="don_t_have_an_account">Don\'t have an Account?</string>
 </resources>
