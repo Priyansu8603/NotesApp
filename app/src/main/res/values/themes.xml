@@ -10,4 +10,20 @@
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">35dp</item>
     </style>
+    
+    <style name="Theme.AppCompat.DayNight.NoActionBar" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="windowActionBarOverlay">true</item>
+
+
+    </style>
+
+    <!-- Custom SearchView Style -->
+    <style name="CustomSearchView" parent="Widget.AppCompat.SearchView">
+        <!-- Custom SearchView Query Text Style -->
+        <item name="queryBackground">@drawable/search_bar_background</item>
+        <item name="queryHint">Search...</item>
+    </style>
 </resources>

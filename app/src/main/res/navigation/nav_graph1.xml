@@ -33,18 +33,18 @@
         android:label="fragment_login"
         tools:layout="@layout/fragment_login" >
         <action
+            android:id="@+id/action_loginFragment_to_notes"
+            app:destination="@id/notes"
             app:enterAnim="@anim/slide_in_right"
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
             app:popExitAnim="@anim/slide_out_right"
-            android:id="@+id/action_loginFragment_to_notes"
-            app:destination="@id/notes"
             app:popUpTo="@id/splashFragment"
             app:popUpToInclusive="true" />
     </fragment>
     <activity
         android:id="@+id/notes"
-        android:name="com.example.notesapp.ui.activity.notes"
+        android:name="com.example.notesapp.ui.activity.NotesActivity"
         android:label="notes" />
     <fragment
         android:id="@+id/splashFragment"

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#272525"
+    android:background="@color/white"
     tools:context=".ui.fragment.Homescreen">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -20,6 +20,7 @@
             android:elevation="8dp"
             android:iconifiedByDefault="false"
             android:queryHint="Search Notes"
+            android:textColor="@color/black"
             app:layout_constraintEnd_toStartOf="@+id/recycler_View"
             app:layout_constraintStart_toEndOf="@+id/recycler_View"
             app:layout_constraintTop_toTopOf="parent" />
@@ -29,6 +30,7 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_marginTop="25dp"
+
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
