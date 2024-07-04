@@ -17,16 +17,19 @@ import com.example.notesapp.ViewModel.AuthViewModel
 import com.example.notesapp.databinding.FragmentLoginBinding
 import com.example.notesapp.ui.activity.NotesActivity
 import com.example.notesapp.utilities.NetworkResult
+import com.example.notesapp.utilities.TokenManager
 import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class LoginFragment : Fragment() {
 
     private var _binding: FragmentLoginBinding? = null
     private val binding get() = _binding!!
-
     private val authViewModel by viewModels<AuthViewModel>()
 
+    @Inject
+    lateinit var tokenManager: TokenManager
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -87,6 +90,7 @@ class LoginFragment : Fragment() {
                     is NetworkResult.Success -> {
 
                         //token implementation
+                        tokenManager.saveToken(it.data!!.token)
 
                         val intent = Intent(requireActivity(), NotesActivity::class.java)
                         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
